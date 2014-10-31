@@ -50,17 +50,6 @@ public class Aplicacao extends javax.swing.JFrame {
 
     }
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
     
    
 
@@ -514,15 +503,7 @@ public class Aplicacao extends javax.swing.JFrame {
      System.out.println("Domínio: " + dominio);
      System.out.println("Site: " + site);
      }
-     */
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-       
-
- 
-    }
+  */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea conjuntoEstados;

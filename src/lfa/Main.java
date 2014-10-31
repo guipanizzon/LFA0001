@@ -6,8 +6,17 @@ import java.util.Stack;
 public class Main {
 
 public static void main(String args[]){
-
- Stack pilha =null;
+ final Stack pilha =null;
+     java.awt.EventQueue.invokeLater(new Runnable() {
+         
+          @Override
+            public void run() {
+                 
+                new Aplicacao(pilha).setVisible(true);
+            }
+        });
+    
+    
 
  Automato automato = new Automato(pilha);
 
