@@ -1,0 +1,28 @@
+	P = (Q, Σ, Γ, δ, q0, Z0, F);
+
+
+	
+	Q: conjunto finito de estados
+	Σ: alfabeto (simbolos de entrada)
+	Γ: alfabeto finito a pilha
+	δ: função de transição - δ: Q x (Σ ∪ λ } ) x Γ→Q x Γ*
+	q0 : estado inicial
+	Z0: símbolo de início da pilha (opcional)
+	F: o conjunto de estados finais.
+
+	
+	δ(q0,a,0)={(q1,10)}
+q0 : estado atual
+a : carácter lido à entrada
+0 : símbolo no topo da pilha
+q1 : estado seguinte
+10: escrever 1 no topo, por cima do zero; i.e, “push 1”.
+	
+
+
+
+(q0,a,@)=(q0,XXX);
+(q0,a,@)=(q0,Y);
+
+
+(q0,a,@)=(q0,XX);
