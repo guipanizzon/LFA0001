@@ -18,13 +18,14 @@ public class Automato {
     public ArrayList<String> palavra = new ArrayList<>();
     public String[] alfabeto;
     public String[] alfabetoPilha;
-    ArrayList<Producoes> funcaoPrograma = new ArrayList<>();
+    ArrayList<ProducoesAP> funcaoPrograma = new ArrayList<>();
     HashMap<String,String> transicoesSimbolo =  new HashMap<>();
     String epsilon="&";
     Map<String,ArrayList<String>> possiveisTransicoes = new HashMap<>();
     ArrayList<String> palavraReserva= new ArrayList<>();
     
-
+    ArrayList<ProducoesGramatica> gramatica = new ArrayList<>();
+    
     List<String> adjacencias= new ArrayList<>();
     Stack pilha;
     
@@ -42,7 +43,7 @@ public class Automato {
          String[] aux=null;
          aux=novaTransicao.split(",");
          
-         Producoes trans = new Producoes();
+         ProducoesAP trans = new ProducoesAP();
          
          trans.estadoAtual=    aux[0];
          trans.simboloFita=    aux[1];
@@ -414,8 +415,63 @@ public void verificaPalavraVazia(String estado2){
     
 }
 
+
+public void adicionaGramaticaGreibach(String regra){
+  
+    ProducoesGramatica producoes = new ProducoesGramatica();
+    String aux[]=null;
+    aux=regra.split("->");
+           System.out.println("lado esquerdo:"+aux[0]);
+    System.out.println("lado direito"+aux[1]);
+
+    System.out.println("tamanho variavel vetor aux:"+aux.length);
+    producoes.variavel=aux[0];
+    producoes.derivacao=aux[1];
+
+    gramatica.add(producoes);
+    System.out.println("quantidade de producoes da gramatica:"+gramatica.size());
+    System.out.println("tamanho gramatica"+gramatica.size());
+
+    
+    
+    
 }
-     
+
+
+public void conversaoGreibachAP(){
+       
+  ProducoesAP transicoes = new ProducoesAP();
+  
+
+  for(int i=0; i<gramatica.size();i++){
+      String lerDaPilha=gramatica.get(i).variavel;
+      String lerDaFita=gramatica.get(i).derivacao.substring(0,1);
+      String gravaNaPilha=gramatica.get(i).derivacao.substring(1);
+      transicoes.estadoAtual="q1";
+      transicoes.estadoSeguinte="qf";
+      transicoes.simboloFita=lerDaFita;
+      transicoes.simboloPilha=lerDaPilha;
+      transicoes.gravaNaPilha=gravaNaPilha;
+      if(transicoes.gravaNaPilha.equals(""))
+          transicoes.gravaNaPilha="&";
+            funcaoPrograma.add(transicoes);
+ 
+  }
+  
+  
+  
+    
+        
+       
+  
+
+}
+  
+    
+}
+
+
+  
      
 
 
